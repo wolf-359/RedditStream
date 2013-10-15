@@ -1,0 +1,55 @@
+#messageFormat:
+#Note: Be sure to enclose the format sting in quotes
+#Colors: & followed by Minecraft color/formatting code (0-9 a-f k-o r)
+#Available strings:
+#  %{author}
+#    The creator of the post
+#  %{author_flair_text}
+#    The flair text of the creator (hopefully the users Minecraft account)
+#    Automatically falls back to the Reddit username if flair is blank
+#  %{created:date format string}
+#    The date/time the post was created
+#    Ex.  %{created_date:yyyy-mm-dd hh:mm:ss z}
+#  %{created_utc:date format string}
+#    The date/time the post was created in UTC
+#    Ex.  %{created_date:yyyy-mm-dd hh:mm:ss z}
+#  %{downs}
+#    Number of downvotes
+#  %{id}
+#    Reddit unique id
+#  %{num_comments}
+#    Number of comments
+#  %{over_18:trueString:falseString}
+#    Is the post marked 'over18'
+#    Ex. %{over_18:NSFW:SFW}
+#  %{reddit_url}
+#    The shortened reddit comments URL (http://redd.it/hTqiU8) 
+#  %{score}
+#    Upvotes - downvotes
+#  %{selftext:max length}
+#    The content if this is a self post
+#  %{subreddit}
+#    The name of the subreddit the post is from, useful if you're pulling from multiple subreddits
+#  %{title:max length}
+#    The title of the post
+#  %{ups}
+#    Number of upvotes
+#  %{url}
+#    If this is a self post, the long version of the reddit comments URL, for link posts the URL of the linked content  
+messageFormat: '&br/%{subreddit}&6 &f[&a%{title:30}&f] &b-=-&4 by: &6%{author_flair_text} &b-=-&3 %{reddit_url}'
+#subreddits: Comma separated list of subreddits to pull from
+subreddits: minecraft,deltaminecraft
+subreddits: other
+#sortingMethod: The reddit sorting method (hot, new, rising, controversial, top)
+sortingMethod: new
+#pollingInterval: Seconds between checking for new stories (min 120)
+pollingInterval: 120
+#broadcastInterval: Seconds between broadcasting queued up stories (min 30)
+broadcastInterval: 60
+#maxStories: The maximum number of stories to return each time interval
+maxStories: 10
+#discardExcessStories: If true, stories after maxStories will be saved for the next time interval.
+#WARNING: Depending on how active the subreddits are, if this is true, and maxStories is set too low, it can cause a backlog of messages that will never clear 
+discardExcessStories: false
+#autoStart: Start the polling as soon as the plugin loads
+autoStart: true

@@ -1,0 +1,29 @@
+name: RedditStream
+main: io.github.wolf_359.RedditStream
+version: 0.1
+commands:
+  redditstream:
+    description: RedditStream commands
+    usage: /<command> [start|stop]
+  redditstream start:
+    description: Starts the reddit poller
+    usage: /redditstream <command>
+    permission: <plugin name>.redditstream.start
+    permission-message: You don't have <permission>
+  redditstream stop:
+    description: Stops the Reddit poller
+    usage: /redditstream <command>
+    permission: <plugin name>.redditstream.stop
+    permission-message: You don't have <permission>
+permissions:
+  redditstream.*:
+    description: Gives access to all reddit commands.
+    children:
+      redditstream.start: true
+      redditstream.stop: true
+  redditstream.start:
+    description: Allows you to start the schedule job
+    default: op
+  redditstream.stop:
+    description: Allows you to stop the schedule job
+    default: op
