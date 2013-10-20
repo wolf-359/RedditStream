@@ -1,4 +1,7 @@
 name: RedditStream
+website: http://wolf-359.github.io/RedditStream/
+description: A Reddit plugin for Bukkit.
+authors: berger_359
 main: io.github.wolf_359.RedditStream
 version: 0.1
 commands:
