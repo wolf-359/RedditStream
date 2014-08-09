@@ -145,7 +145,7 @@ public final class RedditStream extends JavaPlugin implements Listener {
 				m.appendReplacement(s, getItemComponent(item, m.group(1).toLowerCase(), m.group(2)));
 			m.appendTail(s);
 			this.getServer().broadcastMessage(s.toString());
-			tryPurpleBroadcast(s.toString());
+                        this.getServer().getPluginManager().callEvent(new RedditBroadcastEvent(s.toString()));			
 
 			broadcastCount++;
 		}
@@ -215,14 +215,5 @@ public final class RedditStream extends JavaPlugin implements Listener {
 				throw e;
 		}
 		return null;
-	}
-
-	private void tryPurpleBroadcast(String message) {
-		com.cnaude.purpleirc.PurpleIRC p = (com.cnaude.purpleirc.PurpleIRC) this.getServer().getPluginManager().getPlugin("PurpleIRC");
-		if (p == null)
-			return;
-		for (com.cnaude.purpleirc.PurpleBot bot : p.ircBots.values()) {
-			bot.consoleBroadcast(message);
-		}
 	}
 }
